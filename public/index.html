@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SchoolBuddy - AI Study Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Floating decorations -->
+    <div class="floating-icons">
+      <span class="float-icon" style="--delay: 0s; --x: 5%">📐</span>
+      <span class="float-icon" style="--delay: 2s; --x: 15%">🔬</span>
+      <span class="float-icon" style="--delay: 4s; --x: 25%">📖</span>
+      <span class="float-icon" style="--delay: 1s; --x: 75%">🎨</span>
+      <span class="float-icon" style="--delay: 3s; --x: 85%">🧮</span>
+      <span class="float-icon" style="--delay: 5s; --x: 92%">🌍</span>
+    </div>
+
+    <div class="app-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <div class="logo">🎓</div>
+          <div>
+            <h1>SchoolBuddy</h1>
+            <p class="subtitle">Your AI Study Assistant</p>
+          </div>
+        </div>
+        <button class="clear-btn" onclick="clearChat()" title="Start new chat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+          </svg>
+          New Chat
+        </button>
+      </header>
+
+      <!-- Chat Area -->
+      <main class="chat-area" id="chatArea">
+        <!-- Welcome message -->
+        <div class="welcome-card">
+          <div class="welcome-emoji">🏫</div>
+          <h2>Welcome to SchoolBuddy!</h2>
+          <p>I'm here to help you with your studies. Ask me anything about:</p>
+          <div class="subject-tags">
+            <span class="tag" onclick="askSubject('Math')">🔢 Math</span>
+            <span class="tag" onclick="askSubject('Science')">🔬 Science</span>
+            <span class="tag" onclick="askSubject('English')">📝 English</span>
+            <span class="tag" onclick="askSubject('History')">🏛️ History</span>
+            <span class="tag" onclick="askSubject('Geography')">🌍 Geography</span>
+            <span class="tag" onclick="askSubject('Study Tips')">💡 Study Tips</span>
+          </div>
+        </div>
+      </main>
+
+      <!-- Input Area -->
+      <footer class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="messageInput"
+            placeholder="Ask me anything about your studies..."
+            rows="1"
+            onkeydown="handleKeyDown(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+        <p class="disclaimer">SchoolBuddy can make mistakes. Always verify important information with your teachers.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
